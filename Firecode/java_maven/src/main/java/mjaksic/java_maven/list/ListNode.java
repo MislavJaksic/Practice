@@ -1,4 +1,4 @@
-package mjaksic.java_maven.helpers;
+package mjaksic.java_maven.list;
 
 public class ListNode {
 	public String string;

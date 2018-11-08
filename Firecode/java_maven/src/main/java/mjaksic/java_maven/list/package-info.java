@@ -5,4 +5,4 @@
  * @author Korisnik
  *
  */
-package mjaksic.java_maven.helpers;
+package mjaksic.java_maven.list;
