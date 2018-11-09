@@ -28,9 +28,11 @@ public class List {
 	
 	public void InsertNodeAtIndex(ListNode node, int index) {
 		if (!(this.IsNull(node) || this.IsNull(index))) {
+			
 			ListNode before = this.GetNode(index);
 			if (before.next == null) {
 				this.AddNode(node);
+				
 			} else {
 				ListNode after = before.next;
 				node.next = after;
@@ -38,8 +40,26 @@ public class List {
 				this.IncreaseLength();
 			}
 		}
-		
 	}
+	
+	
+	
+	public void DeleteTail() {
+		ListNode node = this.GetNodeBeforeTail();
+		node.next = null;
+		this.DecreaseLength();
+	}
+	
+	public void DeleteAtIndex(int index) {
+		if (this.IsNull(index)) {
+			ListNode before = this.GetNode(index - 1);
+			ListNode after = before.next;
+			before.next = after.next;
+			this.DecreaseLength();
+		}
+	}
+	
+	
 	
 	private ListNode GetTailNode() {
 		ListNode current = this.head;
@@ -49,9 +69,18 @@ public class List {
 		return current;
 	}
 	
+	private ListNode GetNodeBeforeTail() {
+		ListNode current = this.GetNode(this.length - 1);
+		if (current == null) {
+			return this.head;
+		}
+		return current;
+	}
+	
 	/**
-	 * 
-	 * @param index 0 indexed index.
+	 * 0    1   2   
+	 * head one two null
+	 * @param index 0 indexed index. 0 is the HEAD.
 	 * @return A Node or null if it is not in range.
 	 */
 	private ListNode GetNode(int index) {
@@ -65,40 +94,8 @@ public class List {
 		this.ThrowException("Node index out of range.");
 		return null;
 	}
-	/*
+	
 
-	public void Delete(int index) {
-		this.IntNullCheck(index);
-
-		if (this.IsIndexInRange(index)) {
-			if (this.last_index == 0) {
-				this.DeleteOnlyNode();
-			} else if (index == 0) {
-				this.head = head.next.next;
-			} else {
-				ListNode penultimate_node = this.GetNode(index - 1);
-				penultimate_node.next = penultimate_node.next.next;
-			}
-		}
-		this.DecreaseCounters();
-	}
-
-	private void DeleteOnlyNode() {
-		this.head = null;
-	}
-
-	private ListNode GetNode(int index) {
-		if (this.IsIndexInRange(index)) {
-			ListNode current = this.head;
-			int counter = 1;
-			while (counter < index) {
-				current = current.next;
-				counter++;
-			}
-			return current;
-		}
-		return null;
-	}*/
 	
 	private void IncreaseLength() {
 		this.length++;
@@ -108,18 +105,7 @@ public class List {
 		this.length--;
 	}
 	
-	private int GetTailIndex() {
-		return this.length - 1;
-	}
 	
-	
-	
-	private boolean IsEmpty() {
-		if (this.head.next == null) {
-			return true;
-		}
-		return false;
-	}
 	
 	private <T> boolean IsNull(T data) {
 		if (data == null) {
