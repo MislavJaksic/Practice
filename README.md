@@ -1,3 +1,3 @@
-## Practice
+## Practise
 
-Practice makes perfect.
+Practise makes perfect.
