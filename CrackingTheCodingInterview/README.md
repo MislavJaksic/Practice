@@ -118,12 +118,30 @@ If you are unsure how they work, implement them until you do.
 Some tips:
 * listen carefully: examine each word and concepts, they might be important  
 * draw a good example; not too big not too small; avoid drawing a neat special case  
-* state the brute force algorithm  
+* state the brute force algorithm as soon as possible as well as big O
+* test your naive algorithm: pay attention to strange code, exceptional inputs, special and edge cases  
 * optimize the algortihm; use examples, ask questions, make space time trades, use data structures  
-* always walk though your code  
+* always walk though your optimal code  
 * implement your code in a neat way  
 
-TODO
+Optimization and solving tips:
+* reduce bottlenecks, remove unnecessary work, eliminate duplicate work
+* solve the problem by hand
+* simplify then generalize
+* find the base case teh nbuild up
+* walk through the data structures
+
+Good code has a few characteristics:
+* correctness
+* efficiency
+* simplicity
+* readability
+* maintainability
+* uses lots of data structures
+* reuses code
+* is modular
+* is flexible and robust
+* checks for errors
 
 ### The offer and beyond
 
@@ -131,5 +149,4 @@ TODO
 
 #### Arrays and strings
 
-
-
+HashTables:

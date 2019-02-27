@@ -1,8 +1,8 @@
 package fundamentals.algorithm;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 public class InsertionSortTest {
     @Test public void TestInsertionSort() {
