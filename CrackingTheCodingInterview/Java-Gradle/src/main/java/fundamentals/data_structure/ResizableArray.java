@@ -2,8 +2,11 @@ package fundamentals.data_structure;
 
 public class ResizableArray {
 	private static final int enlarge_factor = 2;
-	private static final float sparse_factor = 0.25f;
 	private static final float shrink_factor = 0.5f;
+	
+	private static final int full_factor = 1;
+	private static final float sparse_factor = 0.25f;
+	
 
 	private int[] array;
 	private int index;
@@ -20,13 +23,13 @@ public class ResizableArray {
 			this.Enlarge();
 		}
 
-		this.array[index] = data;
+		this.array[this.GetIndex()] = data;
 		this.IncrementIndex();
 	}
 
 	public int Pop() {
 		int data = this.array[this.GetIndex()];
-		this.array[this.index] = 0;
+		this.array[this.GetIndex()] = 0;
 		this.DecrementIndex();
 
 		if (this.IsSparse()) {
@@ -54,8 +57,8 @@ public class ResizableArray {
 		int[] new_array = new int[new_capacity];
 		
 		int smallest_capacity;
-		if (new_capacity > this.Length()) {
-			smallest_capacity = this.Length();
+		if (new_capacity > this.Size()) {
+			smallest_capacity = this.Size();
 		} else {
 			smallest_capacity = new_capacity;
 		}
@@ -70,14 +73,14 @@ public class ResizableArray {
 	
 	
 	public boolean IsFull() {
-		if (this.index == this.Size()) {
+		if ((this.GetIndex() + 1) * ResizableArray.full_factor == this.Size()) {
 			return true;
 		}
 		return false;
 	}
 
 	public boolean IsSparse() {
-		if (this.Size() * ResizableArray.sparse_factor > this.index) {
+		if (this.Size() * ResizableArray.sparse_factor > (this.GetIndex() + 1)) {
 			return true;
 		}
 		return false;
@@ -86,7 +89,7 @@ public class ResizableArray {
 	
 	
 	public int[] GetArray() {
-		return this.CopyArray(this.Length());
+		return this.CopyArray(this.Size());
 	}
 	
 	public int Size() {
@@ -98,14 +101,14 @@ public class ResizableArray {
 	}
 	
 	public int GetIndex() {
-		return index;
+		return this.index;
 	}
 	
-	public void IncrementIndex() {
+	private void IncrementIndex() {
 		this.index++;
 	}
 
-	public void DecrementIndex() {
+	private void DecrementIndex() {
 		this.index--;
 	}
 }
