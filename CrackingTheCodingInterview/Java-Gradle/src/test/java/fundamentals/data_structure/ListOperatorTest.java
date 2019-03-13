@@ -5,6 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import fundamentals.data_structure.list.ListNode;
+import fundamentals.data_structure.list.ListOperator;
+
 public class ListOperatorTest {
 	@Nested
 	class GetLastNodeTests {

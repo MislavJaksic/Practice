@@ -1,4 +1,4 @@
-package fundamentals.data_structure;
+package fundamentals.data_structure.list;
 
 public class ListNode {
 	public int data;

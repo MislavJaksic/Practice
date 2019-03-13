@@ -1,4 +1,4 @@
-package fundamentals.data_structure;
+package fundamentals.data_structure.list;
 
 public class ListOperator {
 	public static ListNode Append(ListNode node, int data) {
