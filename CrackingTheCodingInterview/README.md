@@ -26,7 +26,7 @@ The book answers why these questions are important.
 A candidate will first do a screening interview.  
 After a successful screening, you will be brought on site to interview with 3 to 6 people.  
 
-In general, most big tech companies interview in the same way.  
+In general, most big tech companies interview the same way.  
 
 ### Special situations
 
@@ -34,7 +34,29 @@ TODO, nothing special though
 
 ### Before the interview
 
-TODO
+#### Get the right experience
+
+Big class projects, interships and freelance project are great for students.  
+Professionals should build something for fun or try to shift their work responsibilities.  
+
+Companies want to see you are smart and that you can construct programs.  
+
+#### Writing a CV
+
+Make sure your CV fits onto one page.  
+Only include the most relevent and most impressive positions.  
+
+Write strong bullet points.  
+Show what you did, how you did it and what were the results:  
+```
+"Reduced object rendering time by 75% by implementing distributed caching, leading to a 10% reduction in log-in time."
+"Increased average match accuracy from 1.2 to 1.5 by implementing a new comparison algorithm based on windiff."
+```
+
+Add up to 4 relevent projects to your CV.  
+Say what it was about, which technologies you used and if it was a team/individual/independent/course project.  
+
+Describe your software and language profficiency in plain English.  
 
 ### Behavioral questions
 
