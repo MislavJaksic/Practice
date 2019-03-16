@@ -90,25 +90,62 @@ public class StringProblems {
 		int diff = source.length() - target.length();
 		if (diff > 1 || diff < -1) {
 			return false;
-		} else if (diff < 0) {
+		} else if (diff > 0) {
 			String sentinel = source;
 			source = target;
 			target = sentinel;
 		}
 		
+		int i = 0;
+		int j = 0;
+		int count = 0;
 		char source_char;
 		char target_char;
-		for (int i = 0; i < target.length(); i++) {
-			source_char = source.charAt(i);
+		while (i < target.length() && j < source.length()) {
 			target_char = target.charAt(i);
+			source_char = source.charAt(j);
 			
-			if (source_char != target_char) {
+			if (target_char != source_char) {
+				count++;
 				if (diff != 0) {
-					source = 
+					j--;
 				}
 			}
+			i++;j++;
 		}
+		
+		if (count > 1) {
+			return false;
+		}
+		
 		return true;
+	}
+	
+	public static String StringCompression(String uncompressed) {
+		StringBuilder builder = new StringBuilder();
+		
+		char previous = uncompressed.charAt(0);
+		char current;
+		int count = 1;
+		for (int i = 1; i < uncompressed.length(); i++) {
+			current = uncompressed.charAt(i);
+			if (current == previous) {
+				count++;
+			} else {
+				builder.append(previous); builder.append(count);
+				count = 1;
+			}
+			previous = current;
+		}
+		
+		builder.append(previous); builder.append(count);
+		
+		String compressed = builder.toString();
+		if (compressed.length() >= uncompressed.length()) {
+			return uncompressed;
+		}
+		
+		return compressed;
 	}
 
 	public static Map<Character, Integer> CountCharacters(String input) {

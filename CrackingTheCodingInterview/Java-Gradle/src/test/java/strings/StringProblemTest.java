@@ -179,4 +179,137 @@ public class StringProblemTest {
 			assertEquals(expected, actual);
 		}
 	}
+	
+	@Nested
+	class OneAwayTests {
+		@Test
+		public void EmptyStringTest() {
+			String one = "";
+			String two = "";
+
+			boolean expected = true;
+
+			boolean actual = StringProblems.OneAway(one, two);
+
+			assertEquals(expected, actual);
+		}
+
+		@Test
+		public void ManyReplacementsTest() {
+			String one = "abbcccdddd";
+			String two = "ddddcccbba";
+
+			boolean expected = false;
+
+			boolean actual = StringProblems.OneAway(one, two);
+
+			assertEquals(expected, actual);
+		}
+
+		@Test
+		public void ManyDeletionsTest() {
+			String one = "abbcccddd";
+			String two = "ddddcccbbaaaaa";
+
+			boolean expected = false;
+
+			boolean actual = StringProblems.OneAway(one, two);
+
+			assertEquals(expected, actual);
+		}
+		
+		@Test
+		public void OneReplacementTest() {
+			String one = "abbcccdddd";
+			String two = "abbcccddda";
+
+			boolean expected = true;
+
+			boolean actual = StringProblems.OneAway(one, two);
+
+			assertEquals(expected, actual);
+		}
+		
+		@Test
+		public void OneDeletionAtMiddleTest() {
+			String one = "abbcccdddd";
+			String two = "abbccdddd";
+
+			boolean expected = true;
+
+			boolean actual = StringProblems.OneAway(one, two);
+
+			assertEquals(expected, actual);
+		}
+
+		@Test
+		public void OneDeletionAtEndTest() {
+			String one = "abbcccdddd";
+			String two = "abbcccddd";
+
+			boolean expected = true;
+
+			boolean actual = StringProblems.OneAway(one, two);
+
+			assertEquals(expected, actual);
+		}
+	}
+	
+	@Nested
+	class StringCompressionTests {
+		@Test
+		public void SmallStringTest() {
+			String one = "ab";
+
+			String expected = "ab";
+
+			String actual = StringProblems.StringCompression(one);
+
+			assertEquals(expected, actual);
+		}
+
+		@Test
+		public void UniformStringTest() {
+			String one = "aaaaa";
+
+			String expected = "a5";
+
+			String actual = StringProblems.StringCompression(one);
+
+			assertEquals(expected, actual);
+		}
+		
+		@Test
+		public void LargeDescendingStringTest() {
+			String one = "aaaaabbbbcccdde";
+
+			String expected = "a5b4c3d2e1";
+
+			String actual = StringProblems.StringCompression(one);
+
+			assertEquals(expected, actual);
+		}
+		
+		@Test
+		public void LargeAscendingStringTest() {
+			String one = "abbcccddddeeeee";
+
+			String expected = "a1b2c3d4e5";
+
+			String actual = StringProblems.StringCompression(one);
+
+			assertEquals(expected, actual);
+		}
+		
+		@Test
+		public void LargeNonRepeatingStringTest() {
+			String one = "abcdefghiklmnop";
+
+			String expected = "abcdefghiklmnop";
+
+			String actual = StringProblems.StringCompression(one);
+
+			assertEquals(expected, actual);
+		}
+	}
 }
