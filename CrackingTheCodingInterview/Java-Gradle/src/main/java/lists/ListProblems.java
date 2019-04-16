@@ -1,6 +1,5 @@
 package lists;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -91,80 +90,99 @@ public class ListProblems {
 		return back;
 	}
 	
-//	public static Node Partition(Node head, int data) {
-//		if (head == null) {
-//			return null;
-//		}
-//		
-//		Node high = head;
-//		Node low = head;
-//		int sentinel;
-//		while (low != null) {
-//			if (high.data > low.data) {
-//				sentinel = high.data;
-//				high.data = low.data;
-//				low.data = sentinel;
-//			}
-//			
-//			if (high.data < data) {
-//				high = high.next;
-//			}
-//			
-//			low = low.next;
-//		}
-//		
-//		return head;
-//	}
-//	
-//	public static Node Sum(Node one, Node two) {
-//		if (one == null) {
-//			if (two == null) {
-//				return null;
-//			} else {
-//				return two;
-//			}
-//		} else if (two == null) {
-//			return one;
-//		}
-//		
-//		int sum = one.data + two.data;
-//		int overflow = sum / 10;
-//		Node head = new Node(sum % 10);
-//		Node last = head;
-//		one = one.next;
-//		two = two.next;
-//		while (one != null && two != null) {
-//			sum = one.data + two.data + overflow;
-//			overflow = sum / 10;
-//			last.next = new Node(sum % 10);
-//			last = last.next;
-//			one = one.next;
-//			two = two.next;
-//		}
-//		
-//		while (one != null) {
-//			sum = one.data + overflow;
-//			overflow = sum / 10;
-//			last.next = new Node(sum % 10);
-//			last = last.next;
-//			one = one.next;
-//		}
-//		
-//		while (two != null) {
-//			sum = two.data + overflow;
-//			overflow = sum / 10;
-//			last.next = new Node(sum % 10);
-//			last = last.next;
-//			two = two.next;
-//		}
-//		
-//		if (overflow > 0) {
-//			last.next = new Node(overflow);
-//		}
-//		
-//		return head;
-//	}
-//	
+	public static Node deleteMiddle(Node node) {
+		if (node == null || node.next == null) {
+			return node;
+		}
+		
+		node.data = node.next.data;
+		node.next = node.next.next;
+		
+		return node;
+	}
+	public static Node partition(Node head, int x) {
+		Node big_finder = head;
+		Node forward = head;
+		int sentinel;
+		while (forward != null) {
+			if (forward.data < x) {
+				sentinel = big_finder.data;
+				big_finder.data = forward.data;
+				forward.data = sentinel;
+			}
+			if (big_finder.data < x) {
+				big_finder = big_finder.next;
+			}
+			forward = forward.next;
+		}
+		
+		return head;
+	}
+	
+	public static Node sumReverse(Node one, Node two) {
+		if (one == null) {
+			return two;
+		} else if (two == null) {
+			return one;
+		}
+		
+		int sum = one.data + two.data;
+		int overflow = sum / 10;
+		Node head = new Node(sum % 10);
+		Node last = head;
+		one = one.next;
+		two = two.next;
+		while (one != null && two != null) {
+			sum = one.data + two.data + overflow;
+			overflow = sum / 10;
+			last.next = new Node(sum % 10);
+			last = last.next;
+			one = one.next;
+			two = two.next;
+		}
+		
+		while (one != null) {
+			sum = one.data + overflow;
+			overflow = sum / 10;
+			last.next = new Node(sum % 10);
+			last = last.next;
+			one = one.next;
+		}
+		
+		while (two != null) {
+			sum = two.data + overflow;
+			overflow = sum / 10;
+			last.next = new Node(sum % 10);
+			last = last.next;
+			two = two.next;
+		}
+		
+		if (overflow > 0) {
+			last.next = new Node(overflow);
+		}
+		
+		return head;
+	}
+	
+	public static Node reverse(Node head) {
+		if (head == null) {
+			return head;
+		}
+		
+		Node new_head = head;
+		head = head.next;
+		new_head.next = null;
+		Node sentinel;
+		while (head != null) {
+			sentinel = head;
+			head = head.next;
+			sentinel.next = new_head;
+			new_head = sentinel;
+		}
+		
+		return new_head;
+	}
+	
 //	public static boolean IsPalindrome(Node head) {
 //		if (head == null || head.next == null) {
 //			return true;
