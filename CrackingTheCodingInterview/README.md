@@ -2,12 +2,12 @@
 
 Cracking The Coding Interview is a book written by Gayle Laakmann McDowell.  
 It promises to help the reader get a great coding job.  
-Be it as it may, what it does have is a lot of interesting problems and solutions.  
+Be it as it may, what it does have is a lot of interesting problems (and solutions).  
 
 ### Introduction
 
 Candidates have to solve interview questions.  
-To solve them ,you need to practice developing fresh algorithms.  
+To solve them they need to practise developing fresh algorithms.  
 
 ### Interview process
 
@@ -30,7 +30,7 @@ In general, most big tech companies interview the same way.
 
 ### Special situations
 
-TODO, nothing special though
+TODO, nothing special though.
 
 ### Before the interview
 
