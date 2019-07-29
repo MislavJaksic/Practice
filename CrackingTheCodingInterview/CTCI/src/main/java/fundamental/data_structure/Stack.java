@@ -1,50 +1,54 @@
 package fundamental.data_structure;
 
+import list.Node;
+
 public class Stack {
-	private int capacity;
-	private int[] array;
+	public static int sentinel = 0;
 	
-	private int head;
-	
+	private Node head;
 	
 	
-	public Stack(int capacity) {
-		this.capacity = capacity;
-		this.array = new int[this.capacity];
-		
-		this.head = 0;
+	
+	public Stack() {
+		this.head = null;
 	}
 	
 	
 	
 	public void push(int data) {
-		if (!this.isFull()) {
-			this.array[this.head] = data;
-			this.head++;
+		Node new_node = new Node(data);
+				
+		if (!this.isEmpty()) {
+			new_node.next = this.head;
 		}
+		
+		this.head = new_node;
 	}
 	
 	public int pop() {
+		int value = Stack.sentinel;
+		
 		if (!this.isEmpty()) {
-			this.head--;
-			return this.array[this.head];
+			value = head.data;
+			this.head = head.next;
 		}
-		return 0;
+		
+		return value;
+	}
+	
+	public int peek() {
+		int value = Stack.sentinel;
+		
+		if (!this.isEmpty()) {
+			value = this.head.data;
+		}
+		
+		return value;
 	}
 	
 	
-	
-	public boolean isFull() {
-		if (this.head == capacity) {
-			return true;
-		}
-		return false;
-	}
 	
 	public boolean isEmpty() {
-		if (this.head == 0) {
-			return true;
-		}
-		return false;
+		return (this.head == null);
 	}
 }

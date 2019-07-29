@@ -1,4 +1,4 @@
-package fundamental.data_structure;
+package fundamental.data_structure.hash;
 
 public class HashNode {
 	public int value;

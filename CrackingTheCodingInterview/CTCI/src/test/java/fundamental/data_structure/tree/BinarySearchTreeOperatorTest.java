@@ -1,4 +1,4 @@
-package fundamental.data_structure;
+package fundamental.data_structure.tree;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

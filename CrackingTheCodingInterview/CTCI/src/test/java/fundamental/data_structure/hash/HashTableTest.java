@@ -1,9 +1,11 @@
-package fundamental.data_structure;
+package fundamental.data_structure.hash;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
+import fundamental.data_structure.hash.HashTable;
 
 
 public class HashTableTest {
