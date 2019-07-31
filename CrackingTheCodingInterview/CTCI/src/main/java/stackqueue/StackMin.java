@@ -1,53 +1,58 @@
-package fundamental.data_structure;
+package stackqueue;
 
-import list.Node;
-
-public class Stack {
-	public static int sentinel = 0;
+public class StackMin {
+public static int sentinel = 0;
 	
-	private int size;
-	
-	private Node head;
+	private NodeMin head;
 	
 	
 	
-	public Stack() {
-		this.size = 0;
+	public StackMin() {
 		this.head = null;
 	}
 	
 	
 	
 	public void push(int data) {
-		Node new_node = new Node(data);
+		NodeMin new_node = new NodeMin(data);
 				
 		if (!this.isEmpty()) {
 			new_node.next = this.head;
+			
+			if (this.head.min.data < new_node.data) {
+				new_node.min = this.head.min;
+			}
 		}
-		
-		this.size++;
 		
 		this.head = new_node;
 	}
 	
 	public int pop() {
-		int value = Stack.sentinel;
+		int value = StackMin.sentinel;
 		
 		if (!this.isEmpty()) {
 			value = head.data;
 			this.head = head.next;
 		}
 		
-		this.size--;
-		
 		return value;
 	}
 	
 	public int peek() {
-		int value = Stack.sentinel;
+		int value = StackMin.sentinel;
 		
 		if (!this.isEmpty()) {
 			value = this.head.data;
+		}
+		
+		return value;
+	}
+	
+	public int min() {
+		int value = StackMin.sentinel;
+		
+		if (!this.isEmpty()) {
+			value = this.head.min.data;
 		}
 		
 		return value;
@@ -57,9 +62,5 @@ public class Stack {
 	
 	public boolean isEmpty() {
 		return (this.head == null);
-	}
-	
-	public int size() {
-		return this.size;
 	}
 }
