@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import fundamental.data_structure.Stack;
+import stackqueue.SetOfStacks;
 import stackqueue.StackMin;
 
 public class StackProblems {
@@ -67,6 +69,90 @@ public class StackProblems {
 			int expected = 1;
 			
 			assertEquals(expected, stack.min());
+		}
+	}
+	
+	@Nested
+	class SetOfStacksTests {
+		SetOfStacks stack = new SetOfStacks(3, 1);
+		
+		@Test
+		public void pushOneTest() {
+			int data = 1;
+			stack.push(data);
+			
+			int expected = 1;
+			
+			assertEquals(expected, stack.peek());
+		}
+		
+		@Test
+		public void pushTwoTest() {
+			int data = 1;
+			stack.push(data);
+			data = 2;
+			stack.push(data);
+			
+			int expected = 2;
+			
+			assertEquals(expected, stack.peek());
+		}
+		
+		@Test
+		public void popOneTest() {
+			int data = 1;
+			stack.push(data);
+			stack.pop();
+			
+			int expected = Stack.sentinel;
+			
+			assertEquals(expected, stack.peek());
+		}
+		
+		@Test
+		public void popTwoTest() {
+			int data = 1;
+			stack.push(data);
+			data = 2;
+			stack.push(data);
+			stack.pop();
+			
+			int expected = 1;
+			
+			assertEquals(expected, stack.peek());
+		}
+		
+		@Test
+		public void overflowTest() {
+			int data = 1;
+			stack.push(data);
+			data = 2;
+			stack.push(data);
+			data = 3;
+			stack.push(data);
+			data = 4;
+			stack.push(data);
+			
+			int expected = 4;
+			
+			assertEquals(expected, stack.peek());
+		}
+		
+		@Test
+		public void emptyTest() {
+			boolean expected = true;
+			
+			assertEquals(expected, stack.isEmpty());
+		}
+		
+		@Test
+		public void notEmptyTest() {
+			int data = 1;
+			stack.push(data);
+			
+			boolean expected = false;
+			
+			assertEquals(expected, stack.isEmpty());
 		}
 	}
 }
