@@ -17,7 +17,7 @@ public class ListOperatorTest {
 			
 			ListNode expected = null;
 
-			assertEquals(expected, ListOperator.GetLastNode(node));
+			assertEquals(expected, ListOperator.getLastNode(node));
 		}
 		
 		@Test
@@ -26,7 +26,7 @@ public class ListOperatorTest {
 			
 			ListNode expected = new ListNode(0);
 
-			assertEquals(expected, ListOperator.GetLastNode(node));
+			assertEquals(expected, ListOperator.getLastNode(node));
 		}
 		
 		@Test
@@ -36,7 +36,7 @@ public class ListOperatorTest {
 			
 			ListNode expected = new ListNode(1);
 
-			assertEquals(expected, ListOperator.GetLastNode(node));
+			assertEquals(expected, ListOperator.getLastNode(node));
 		}
 	}
 	
@@ -48,7 +48,7 @@ public class ListOperatorTest {
 			
 			ListNode expected = null;
 
-			assertEquals(expected, ListOperator.GetSecondToLastNode(node));
+			assertEquals(expected, ListOperator.getSecondToLastNode(node));
 		}
 		
 		@Test
@@ -57,7 +57,7 @@ public class ListOperatorTest {
 			
 			ListNode expected = new ListNode(0);
 
-			assertEquals(expected, ListOperator.GetSecondToLastNode(node));
+			assertEquals(expected, ListOperator.getSecondToLastNode(node));
 		}
 		
 		@Test
@@ -68,7 +68,7 @@ public class ListOperatorTest {
 			
 			ListNode expected = new ListNode(1);
 
-			assertEquals(expected, ListOperator.GetSecondToLastNode(node));
+			assertEquals(expected, ListOperator.getSecondToLastNode(node));
 		}
 	}
 	
@@ -77,21 +77,21 @@ public class ListOperatorTest {
 		@Test
 		public void TestAppendToNull() {
 			ListNode node = null;
-			ListNode result = ListOperator.Append(node, 0);
+			ListNode result = ListOperator.append(node, 0);
 			
 			ListNode expected = new ListNode(0);
 
-			assertEquals(expected, ListOperator.GetLastNode(result));
+			assertEquals(expected, ListOperator.getLastNode(result));
 		}
 		
 		@Test
 		public void TestAppendToNonNull() {
 			ListNode node = new ListNode(0);
-			ListNode result = ListOperator.Append(node, 1);
+			ListNode result = ListOperator.append(node, 1);
 			
 			ListNode expected = new ListNode(1);
 
-			assertEquals(expected, ListOperator.GetLastNode(result));
+			assertEquals(expected, ListOperator.getLastNode(result));
 		}
 	}
 }

@@ -1,20 +1,20 @@
 package list;
 
-public class Node {
-	public int data;
-	public Node next;
+public class Node<T> {
+	public T data;
+	public Node<T> next;
 	
 	
 	
-	public Node(int data) {
+	public Node(T data) {
 		this.data = data;
 		this.next = null;
 	}
 	
 	
 	
-	public Node Add(int data) {
-		this.next = new Node(data);
+	public Node<T> add(T data) {
+		this.next = new Node<T>(data);
 		return this.next;
 	}
 }

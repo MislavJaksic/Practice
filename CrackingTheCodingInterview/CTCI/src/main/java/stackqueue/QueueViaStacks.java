@@ -2,22 +2,22 @@ package stackqueue;
 
 import fundamental.data_structure.Stack;
 
-public class QueueViaStacks {
-	private Stack new_stack;
-	private Stack old_stack;
+public class QueueViaStacks<T> {
+	private Stack<T> new_stack;
+	private Stack<T> old_stack;
 	
 	
 	
 	public QueueViaStacks() {
-		this.new_stack = new Stack();
-		this.old_stack = new Stack();
+		this.new_stack = new Stack<T>();
+		this.old_stack = new Stack<T>();
 	}
 	
-	public void add(int data) {
+	public void add(T data) {
 		this.new_stack.push(data);
 	}
 	
-	public int remove() {
+	public T remove() {
 		if (this.old_stack.isEmpty()) {
 			this.transfer();
 		}
@@ -25,7 +25,7 @@ public class QueueViaStacks {
 		return this.old_stack.pop();
 	}
 	
-	public int peek() {
+	public T peek() {
 		if (this.old_stack.isEmpty()) {
 			this.transfer();
 		}

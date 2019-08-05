@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class StackTest {
 	@Nested
 	class FunctionTests {
-		Stack stack = new Stack();
+		Stack<Integer> stack = new Stack<Integer>();
 		
 		@Test
 		public void pushOneTest() {
@@ -38,7 +38,7 @@ public class StackTest {
 			stack.push(data);
 			stack.pop();
 			
-			int expected = Stack.sentinel;
+			Integer expected = stack.sentinel;
 			
 			assertEquals(expected, stack.peek());
 		}
@@ -52,7 +52,7 @@ public class StackTest {
 			stack.pop();
 			stack.pop();
 			
-			int expected = Stack.sentinel;
+			Integer expected = stack.sentinel;
 			
 			assertEquals(expected, stack.peek());
 		}

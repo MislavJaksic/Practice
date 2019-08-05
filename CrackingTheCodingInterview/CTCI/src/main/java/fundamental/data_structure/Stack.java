@@ -2,12 +2,12 @@ package fundamental.data_structure;
 
 import list.Node;
 
-public class Stack {
-	public static int sentinel = 0;
+public class Stack<T> {
+	public T sentinel = null;
 	
 	private int size;
 	
-	private Node head;
+	private Node<T> head;
 	
 	
 	
@@ -18,8 +18,8 @@ public class Stack {
 	
 	
 	
-	public void push(int data) {
-		Node new_node = new Node(data);
+	public void push(T data) {
+		Node<T> new_node = new Node<T>(data);
 				
 		if (!this.isEmpty()) {
 			new_node.next = this.head;
@@ -30,8 +30,8 @@ public class Stack {
 		this.head = new_node;
 	}
 	
-	public int pop() {
-		int value = Stack.sentinel;
+	public T pop() {
+		T value = this.sentinel;
 		
 		if (!this.isEmpty()) {
 			value = head.data;
@@ -43,8 +43,8 @@ public class Stack {
 		return value;
 	}
 	
-	public int peek() {
-		int value = Stack.sentinel;
+	public T peek() {
+		T value = this.sentinel;
 		
 		if (!this.isEmpty()) {
 			value = this.head.data;

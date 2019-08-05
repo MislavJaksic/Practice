@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class QueueTest {
 	@Nested
 	class FunctionTests {
-		Queue queue = new Queue();
+		Queue<Integer> queue = new Queue<Integer>();
 
 		@Test
 		public void pushOneTest() {
@@ -38,7 +38,7 @@ public class QueueTest {
 			queue.add(data);
 			queue.remove();
 
-			int expected = Stack.sentinel;
+			Integer expected = queue.sentinel;
 
 			assertEquals(expected, queue.peek());
 		}
@@ -52,7 +52,7 @@ public class QueueTest {
 			queue.remove();
 			queue.remove();
 
-			int expected = Stack.sentinel;
+			Integer expected = queue.sentinel;
 
 			assertEquals(expected, queue.peek());
 		}

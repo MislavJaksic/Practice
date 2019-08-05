@@ -1,16 +1,20 @@
 package stackqueue;
 
+import java.lang.reflect.Array;
+
 import fundamental.data_structure.Stack;
 
-public class SetOfStacks {
-	private Stack[] stacks;
+public class SetOfStacks<T> {
+	public T sentinel = null;
+	
+	private Stack<T>[] stacks;
 	
 	private int set_size;
 	private int threshold;
 	
 	
 	
-	public SetOfStacks(int set_size, int threshold) {
+	public SetOfStacks(Class<T> class_type, int set_size, int threshold) {
 		if (set_size < 1) {
 			set_size = 1;
 		}
@@ -20,9 +24,11 @@ public class SetOfStacks {
 		this.set_size = set_size;
 		this.threshold = threshold;
 		
-		this.stacks = new Stack[this.set_size];
+		@SuppressWarnings("unchecked")
+        final Stack<T>[] stacks = (Stack<T>[]) Array.newInstance(class_type, set_size);
+		this.stacks = stacks;
 		for (int i = 0; i < this.set_size; i++) {
-			this.stacks[i] = new Stack();
+			this.stacks[i] = new Stack<T>();
 		}
 		
 		
@@ -30,33 +36,33 @@ public class SetOfStacks {
 	
 	
 	
-	public void push(int data) {
+	public void push(T data) {
 		int i = 0;
 		while (!(stacks[i].size() < this.threshold) && (i < (this.set_size - 1))) {
 			i++;
 		}
 		
-		Stack stack = stacks[i];
+		Stack<T> stack = stacks[i];
 		stack.push(data);
 	}
 	
-	public int pop() {
+	public T pop() {
 		int i = this.set_size - 1;
 		while (stacks[i].isEmpty() && (i > 0)) {
 			i--;
 		}
 		
-		Stack stack = this.stacks[i];
+		Stack<T> stack = this.stacks[i];
 		return stack.pop();
 	}
 	
-	public int peek() {
+	public T peek() {
 		int i = this.set_size - 1;
 		while (stacks[i].isEmpty() && (i > 0)) {
 			i--;
 		}
 		
-		Stack stack = this.stacks[i];
+		Stack<T> stack = this.stacks[i];
 		return stack.peek();
 	}
 	
@@ -64,7 +70,7 @@ public class SetOfStacks {
 	
 	public boolean isEmpty() {
 		boolean isEmpty = true;
-		for (Stack stack : stacks) {
+		for (Stack<T> stack : stacks) {
 			if (!stack.isEmpty()) {
 				isEmpty = false;
 				break;

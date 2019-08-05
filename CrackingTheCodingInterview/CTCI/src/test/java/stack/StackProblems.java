@@ -2,12 +2,14 @@ package stack;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import fundamental.data_structure.Stack;
 import stackqueue.QueueViaStacks;
 import stackqueue.SetOfStacks;
+import stackqueue.SortStack;
 import stackqueue.StackMin;
 
 public class StackProblems {
@@ -75,7 +77,7 @@ public class StackProblems {
 	
 	@Nested
 	class SetOfStacksTests {
-		SetOfStacks stack = new SetOfStacks(3, 1);
+		SetOfStacks<Integer> stack = new SetOfStacks<Integer>(Integer.class, 3, 1);
 		
 		@Test
 		public void pushOneTest() {
@@ -105,7 +107,7 @@ public class StackProblems {
 			stack.push(data);
 			stack.pop();
 			
-			int expected = Stack.sentinel;
+			Integer expected = stack.sentinel;
 			
 			assertEquals(expected, stack.peek());
 		}
@@ -159,7 +161,7 @@ public class StackProblems {
 	
 	@Nested
 	class QueueViaStacksTests {
-		QueueViaStacks queue = new QueueViaStacks();
+		QueueViaStacks<Integer> queue = new QueueViaStacks<Integer>();
 		
 		@Test
 		public void manyPopTest() {
@@ -204,6 +206,64 @@ public class StackProblems {
 			boolean expected = false;
 			
 			assertEquals(expected, queue.isEmpty());
+		}
+	}
+	
+	@Nested
+	class SortStackTests {
+		SortStack sorter = new SortStack();
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		@BeforeEach
+		public void addData() {
+			int data = 3;
+			stack.push(data);
+			data = 2;
+			stack.push(data);
+			data = 7;
+			stack.push(data);
+			data = 1;
+			stack.push(data);
+			data = 5;
+			stack.push(data);
+		}
+		
+		@Test
+		public void popMaxTest() {
+			int data = sorter.popMax(stack);
+			
+			int expected = 7;
+			
+			assertEquals(expected, data);
+		}
+		
+		@Test
+		public void peekAfterPopMaxTest() {
+			sorter.popMax(stack);
+			
+			int expected = 5;
+			
+			assertEquals(expected, stack.peek());
+		}
+		
+		@Test
+		public void sortTest() {
+			Stack<Integer> sorted_stack = sorter.sortAscending(stack);
+			Stack<Integer> expected = new Stack<Integer>();
+			int data = 7;
+			expected.push(data);
+			data = 5;
+			expected.push(data);
+			data = 3;
+			expected.push(data);
+			data = 2;
+			expected.push(data);
+			data = 1;
+			expected.push(data);
+			
+			while ((!sorted_stack.isEmpty()) && (!stack.isEmpty())) {
+				assertEquals(expected.pop(), sorted_stack.pop());
+			}
 		}
 	}
 }
