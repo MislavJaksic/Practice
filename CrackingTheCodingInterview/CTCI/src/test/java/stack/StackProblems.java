@@ -77,7 +77,7 @@ public class StackProblems {
 	
 	@Nested
 	class SetOfStacksTests {
-		SetOfStacks<Integer> stack = new SetOfStacks<Integer>(Integer.class, 3, 1);
+		SetOfStacks<Integer> stack = new SetOfStacks<Integer>(3, 1);
 		
 		@Test
 		public void pushOneTest() {

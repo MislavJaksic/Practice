@@ -1,7 +1,5 @@
 package stackqueue;
 
-import java.lang.reflect.Array;
-
 import fundamental.data_structure.Stack;
 
 public class SetOfStacks<T> {
@@ -14,7 +12,7 @@ public class SetOfStacks<T> {
 	
 	
 	
-	public SetOfStacks(Class<T> class_type, int set_size, int threshold) {
+	public SetOfStacks(int set_size, int threshold) {
 		if (set_size < 1) {
 			set_size = 1;
 		}
@@ -24,14 +22,16 @@ public class SetOfStacks<T> {
 		this.set_size = set_size;
 		this.threshold = threshold;
 		
+		this.setGenericArray();
+	}
+	
+	private void setGenericArray() {
 		@SuppressWarnings("unchecked")
-        final Stack<T>[] stacks = (Stack<T>[]) Array.newInstance(class_type, set_size);
+        final Stack<T>[] stacks = (Stack<T>[]) new Stack[this.set_size];
 		this.stacks = stacks;
 		for (int i = 0; i < this.set_size; i++) {
 			this.stacks[i] = new Stack<T>();
 		}
-		
-		
 	}
 	
 	
