@@ -2,12 +2,10 @@ package stackqueue;
 
 import java.util.LinkedList;
 
-import fundamental.data_structure.Queue;
 import list.Node;
 
 public class AnimalShelter {
 	private LinkedList<Animal> list;
-	private 
 	
 	private Node<Animal> before_oldest_dog;
 	private Node<Animal> before_oldest_cat;
@@ -24,18 +22,27 @@ public class AnimalShelter {
 	
 	public void enqueue(Animal animal) {
 		this.list.add(animal);
+		
+		if (this.before_oldest_dog == null) {
+			
+		}
+		
+		if (this.before_oldest_cat == null) {
+			
+		}
 	}
 	
 	public Animal dequeueAny() {
-		
+		this.list.remove();
+		return null;
 	}
 	
 	public Dog dequeueDog() {
-			
+			return null;
 	}
 	
 	public Cat dequeueCat() {
-		
+		return null;
 	}
 	
 	

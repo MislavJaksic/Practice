@@ -1,4 +1,4 @@
-package fundamental.data_structure;
+package fundamental.structure;
 
 import list.Node;
 

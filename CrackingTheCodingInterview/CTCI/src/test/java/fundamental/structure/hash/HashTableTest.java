@@ -1,4 +1,4 @@
-package fundamental.data_structure.hash;
+package fundamental.structure.hash;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

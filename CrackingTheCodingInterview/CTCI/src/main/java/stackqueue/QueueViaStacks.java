@@ -1,6 +1,6 @@
 package stackqueue;
 
-import fundamental.data_structure.Stack;
+import fundamental.structure.Stack;
 
 public class QueueViaStacks<T> {
 	private Stack<T> new_stack;

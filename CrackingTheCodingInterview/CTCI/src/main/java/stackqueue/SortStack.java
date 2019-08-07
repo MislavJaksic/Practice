@@ -1,6 +1,6 @@
 package stackqueue;
 
-import fundamental.data_structure.Stack;
+import fundamental.structure.Stack;
 
 public class SortStack {
 	private Stack<Integer> sorted_stack;
