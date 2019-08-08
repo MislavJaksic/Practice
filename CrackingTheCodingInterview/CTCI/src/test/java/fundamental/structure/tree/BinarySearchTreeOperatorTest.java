@@ -9,8 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import fundamental.data_structure.tree.BinaryNode;
-import fundamental.data_structure.tree.BinarySearchTreeOperator;
+import fundamental.structure.tree.BinaryNode;
+import fundamental.structure.tree.BinarySearchTreeOperator;
 
 public class BinarySearchTreeOperatorTest {
 	@Nested

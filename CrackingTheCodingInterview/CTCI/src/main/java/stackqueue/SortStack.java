@@ -23,6 +23,16 @@ public class SortStack {
 		return this.sorted_stack;
 	}
 	
+	public Stack<Integer> sortAscendingFaster(Stack<Integer> stack) {
+		this.sorted_stack = new Stack<Integer>();
+		
+		while (!stack.isEmpty()) {
+			this.pushToSorted(stack);
+		}
+		
+		return this.sorted_stack;
+	}
+	
 	public Integer popMax(Stack<Integer> stack) {
 		Integer data = stack.pop();
 		
@@ -37,6 +47,22 @@ public class SortStack {
 		} else {
 			stack.push(data);
 			return max;
+		}
+	}
+	
+	public void pushToSorted(Stack<Integer> stack) {
+		if (this.sorted_stack.isEmpty()) {
+			this.sorted_stack.push(stack.pop());
+			return;
+		}
+		
+		Integer value = null;
+		if (this.sorted_stack.peek() > stack.peek()) {
+			value = this.sorted_stack.pop();
+			this.pushToSorted(stack);
+			this.sorted_stack.push(value);
+		} else {
+			this.sorted_stack.push(stack.pop());
 		}
 	}
 }

@@ -10,7 +10,11 @@ import fundamental.structure.Stack;
 import stackqueue.QueueViaStacks;
 import stackqueue.SetOfStacks;
 import stackqueue.SortStack;
-import stackqueue.StackMin;
+import stackqueue.min.StackMin;
+import stackqueue.shelter.Animal;
+import stackqueue.shelter.AnimalShelter;
+import stackqueue.shelter.Cat;
+import stackqueue.shelter.Dog;
 
 public class StackProblems {
 	@Nested
@@ -19,7 +23,7 @@ public class StackProblems {
 		
 		@Test
 		public void minZeroTest() {
-			int expected = StackMin.sentinel;
+			int expected = stack.sentinel;
 			
 			assertEquals(expected, stack.min());
 		}
@@ -263,6 +267,167 @@ public class StackProblems {
 			
 			while ((!sorted_stack.isEmpty()) && (!stack.isEmpty())) {
 				assertEquals(expected.pop(), sorted_stack.pop());
+			}
+		}
+		
+		@Test
+		public void sortFasterTest() {
+			Stack<Integer> sorted_stack = sorter.sortAscendingFaster(stack);
+			Stack<Integer> expected = new Stack<Integer>();
+			int data = 7;
+			expected.push(data);
+			data = 5;
+			expected.push(data);
+			data = 3;
+			expected.push(data);
+			data = 2;
+			expected.push(data);
+			data = 1;
+			expected.push(data);
+			
+			while ((!sorted_stack.isEmpty()) && (!stack.isEmpty())) {
+				assertEquals(expected.pop(), sorted_stack.pop());
+			}
+		}
+		
+		@Nested
+		class AnimalShelterTests {
+			AnimalShelter shelter = new AnimalShelter();
+			
+			@Test
+			public void anyNothingTest() {
+				Animal data = shelter.dequeueAny();
+				
+				Animal expected = null;
+				
+				assertEquals(expected, data);
+			}
+			
+			@Test
+			public void dogNothingTest() {
+				Animal data = shelter.dequeueDog();
+				
+				Animal expected = null;
+				
+				assertEquals(expected, data);
+			}
+			
+			@Test
+			public void catNothingTest() {
+				Animal data = shelter.dequeueCat();
+				
+				Animal expected = null;
+				
+				assertEquals(expected, data);
+			}
+			
+			@Test
+			public void anyOneTest() {
+				String name = "max";
+				Dog animal = new Dog(name);
+				shelter.enqueue(animal);
+				
+				String expected = name;
+				
+				assertEquals(expected, shelter.dequeueAny().name);
+			}
+			
+			@Test
+			public void dogOneTest() {
+				String name = "max";
+				Dog animal = new Dog(name);
+				shelter.enqueue(animal);
+				
+				String expected = name;
+				
+				assertEquals(expected, shelter.dequeueDog().name);
+			}
+			
+			@Test
+			public void catOneTest() {
+				String name = "fluffy";
+				Cat animal = new Cat(name);
+				shelter.enqueue(animal);
+				
+				String expected = name;
+				
+				assertEquals(expected, shelter.dequeueCat().name);
+			}
+			
+			@Test
+			public void anyOlderTest() {
+				String dog_name = "max";
+				Dog dog = new Dog(dog_name);
+				shelter.enqueue(dog);
+				
+				String cat_name = "fluffy";
+				Cat cat = new Cat(cat_name);
+				shelter.enqueue(cat);
+				
+				String expected = dog_name;
+				
+				assertEquals(expected, shelter.dequeueAny().name);
+			}
+			
+			@Test
+			public void dogOlderTest() {
+				String dog_name = "max";
+				Dog dog = new Dog(dog_name);
+				shelter.enqueue(dog);
+				
+				String cat_name = "fluffy";
+				Cat cat = new Cat(cat_name);
+				shelter.enqueue(cat);
+				
+				String expected = dog_name;
+				
+				assertEquals(expected, shelter.dequeueDog().name);
+			}
+			
+			@Test
+			public void catOlderTest() {
+				String cat_name = "fluffy";
+				Cat cat = new Cat(cat_name);
+				shelter.enqueue(cat);
+				
+				String dog_name = "max";
+				Dog dog = new Dog(dog_name);
+				shelter.enqueue(dog);
+				
+				String expected = cat_name;
+				
+				assertEquals(expected, shelter.dequeueCat().name);
+			}
+			
+			@Test
+			public void manyAnimalsTest() {
+				String cat_name = "fluffy";
+				Cat cat = new Cat(cat_name);
+				shelter.enqueue(cat);
+				
+				String dog_name = "max";
+				Dog dog = new Dog(dog_name);
+				shelter.enqueue(dog);
+				
+				dog_name = "lassie";
+				dog = new Dog(dog_name);
+				shelter.enqueue(dog);
+				
+				dog_name = "dubby";
+				dog = new Dog(dog_name);
+				shelter.enqueue(dog);
+				
+				cat_name = "scratchie";
+				cat = new Cat(cat_name);
+				shelter.enqueue(cat);
+				
+				cat_name = "illy";
+				cat = new Cat(cat_name);
+				shelter.enqueue(cat);
+				
+				String expected = "max";
+				
+				assertEquals(expected, shelter.dequeueDog().name);
 			}
 		}
 	}

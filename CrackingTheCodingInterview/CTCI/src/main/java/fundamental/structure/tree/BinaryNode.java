@@ -1,4 +1,4 @@
-package fundamental.data_structure.tree;
+package fundamental.structure.tree;
 
 public class BinaryNode {
 	public int data;

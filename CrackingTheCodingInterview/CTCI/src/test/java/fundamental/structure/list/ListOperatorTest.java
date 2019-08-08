@@ -5,8 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import fundamental.data_structure.list.ListNode;
-import fundamental.data_structure.list.ListOperator;
+import fundamental.structure.list.ListNode;
+import fundamental.structure.list.ListOperator;
 
 public class ListOperatorTest {
 	@Nested

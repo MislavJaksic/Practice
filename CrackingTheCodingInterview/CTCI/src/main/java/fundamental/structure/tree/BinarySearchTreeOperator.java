@@ -1,4 +1,4 @@
-package fundamental.data_structure.tree;
+package fundamental.structure.tree;
 
 import java.util.List;
 
