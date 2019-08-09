@@ -6,41 +6,41 @@ import java.util.List;
  * All left children are smaller and all right children are bigger then the root of the subtree.
  */
 public class BinarySearchTreeOperator {
-	public static BinaryNode Add(BinaryNode root, BinaryNode node) {
+	public static BinaryNode<Integer> add(BinaryNode<Integer> root, BinaryNode<Integer> node) {
 		if (root == null) {
 			return node;
 		} else {
 			if (root.data > node.data) {
-				root.left = BinarySearchTreeOperator.Add(root.left, node);
+				root.left = BinarySearchTreeOperator.add(root.left, node);
 			} else {
-				root.right = BinarySearchTreeOperator.Add(root.right, node);
+				root.right = BinarySearchTreeOperator.add(root.right, node);
 			}
 		}
 		return root;
 	}
 	
-	public static List<Integer> GetInOrder(BinaryNode root, List<Integer> list) {
+	public static List<Integer> getInOrder(BinaryNode<Integer> root, List<Integer> list) {
 		if (root != null) {
-			list = BinarySearchTreeOperator.GetInOrder(root.left, list);
+			list = BinarySearchTreeOperator.getInOrder(root.left, list);
 			list.add(root.data);
-			list = BinarySearchTreeOperator.GetInOrder(root.right, list);
+			list = BinarySearchTreeOperator.getInOrder(root.right, list);
 		}
 		return list;
 	}
 	
-	public static List<Integer> GetPreOrder(BinaryNode root, List<Integer> list) {
+	public static List<Integer> getPreOrder(BinaryNode<Integer> root, List<Integer> list) {
 		if (root != null) {
 			list.add(root.data);
-			list = BinarySearchTreeOperator.GetPreOrder(root.left, list);
-			list = BinarySearchTreeOperator.GetPreOrder(root.right, list);
+			list = BinarySearchTreeOperator.getPreOrder(root.left, list);
+			list = BinarySearchTreeOperator.getPreOrder(root.right, list);
 		}
 		return list;
 	}
 	
-	public static List<Integer> GetPostOrder(BinaryNode root, List<Integer> list) {
+	public static List<Integer> getPostOrder(BinaryNode<Integer> root, List<Integer> list) {
 		if (root != null) {
-			list = BinarySearchTreeOperator.GetPostOrder(root.left, list);
-			list = BinarySearchTreeOperator.GetPostOrder(root.right, list);
+			list = BinarySearchTreeOperator.getPostOrder(root.left, list);
+			list = BinarySearchTreeOperator.getPostOrder(root.right, list);
 			list.add(root.data);
 		}
 		return list;

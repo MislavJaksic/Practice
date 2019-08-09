@@ -1,11 +1,13 @@
 package fundamental.structure.tree;
 
-public class BinaryNode {
-	public int data;
-	public BinaryNode left = null;
-	public BinaryNode right = null;
+public class BinaryNode<T> {
+	public T data;
+	public BinaryNode<T> left = null;
+	public BinaryNode<T> right = null;
 	
-	public BinaryNode(int data) {
+	
+	
+	public BinaryNode(T data) {
 		this.data = data;
 	}
 }

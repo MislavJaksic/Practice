@@ -1,4 +1,4 @@
-package fundamental.algorithm;
+package fundamental.algorithm.search;
 
 public class BinarySearch {
 	public static int search(int[] array, int element) {

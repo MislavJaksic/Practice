@@ -1,4 +1,4 @@
-package fundamental.algorithm;
+package fundamental.algorithm.sort;
 
 public class QuickSort {
 	/**

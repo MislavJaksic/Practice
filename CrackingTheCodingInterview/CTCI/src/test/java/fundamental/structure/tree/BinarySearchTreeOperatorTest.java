@@ -15,16 +15,16 @@ import fundamental.structure.tree.BinarySearchTreeOperator;
 public class BinarySearchTreeOperatorTest {
 	@Nested
 	class AddNodesTests {
-		BinaryNode root = new BinaryNode(6);
+		BinaryNode<Integer> root = new BinaryNode<Integer>(6);
 		
 		@BeforeEach
 		public void AddNineNodes() {
 			int[] insertion_data = {2,10,0,4,8,12,3,9,13};
-			BinaryNode new_node;
+			BinaryNode<Integer> new_node;
 			
 			for (int i = 0; i < insertion_data.length; i++) {
-				new_node = new BinaryNode(insertion_data[i]);
-				root = BinarySearchTreeOperator.Add(root, new_node);
+				new_node = new BinaryNode<Integer>(insertion_data[i]);
+				root = BinarySearchTreeOperator.add(root, new_node);
 			}
 		}
 		
@@ -39,7 +39,7 @@ public class BinarySearchTreeOperatorTest {
 			
 			List<Integer> actual = new ArrayList<Integer>();
 			
-			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.GetInOrder(root, actual).toArray());
+			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.getInOrder(root, actual).toArray());
 		}
 		
 		@Test
@@ -53,7 +53,7 @@ public class BinarySearchTreeOperatorTest {
 			
 			List<Integer> actual = new ArrayList<Integer>();
 			
-			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.GetPreOrder(root, actual).toArray());
+			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.getPreOrder(root, actual).toArray());
 		}
 		
 		@Test
@@ -67,7 +67,7 @@ public class BinarySearchTreeOperatorTest {
 			
 			List<Integer> actual = new ArrayList<Integer>();
 			
-			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.GetPostOrder(root, actual).toArray());
+			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.getPostOrder(root, actual).toArray());
 		}
 	}
 }

@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import fundamental.algorithm.BinarySearch;
+import fundamental.algorithm.search.BinarySearch;
 
 public class BinarySearchTest {
     @Test public void TestBinarySearchIsExist() {

@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
-import fundamental.algorithm.InsertionSort;
+import fundamental.algorithm.sort.InsertionSort;
 
 public class InsertionSortTest {
     @Test public void TestInsertionSort() {

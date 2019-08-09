@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
-import fundamental.algorithm.MergeSort;
+import fundamental.algorithm.sort.MergeSort;
 
 public class MergeSortTest {
 	@Test public void TestMergeSort() {

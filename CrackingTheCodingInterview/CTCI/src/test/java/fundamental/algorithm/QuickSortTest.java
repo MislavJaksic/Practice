@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
-import fundamental.algorithm.QuickSort;
+import fundamental.algorithm.sort.QuickSort;
 
 public class QuickSortTest {
 	@Test public void TestQuickSort() {
