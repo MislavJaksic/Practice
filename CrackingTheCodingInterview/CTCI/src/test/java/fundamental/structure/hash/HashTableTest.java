@@ -126,12 +126,5 @@ public class HashTableTest {
 			
 			assertEquals(expected, table.get(key_2));
 		}
-		
-//		@Test
-//		public void addTest() {
-//			expected = ;
-//			
-//			assertEquals(expected, );
-//		}
 	}
 }

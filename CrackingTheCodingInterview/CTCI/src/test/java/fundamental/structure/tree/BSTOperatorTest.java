@@ -10,9 +10,9 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import fundamental.structure.tree.BinaryNode;
-import fundamental.structure.tree.BinarySearchTreeOperator;
+import fundamental.structure.tree.BSTOperator;
 
-public class BinarySearchTreeOperatorTest {
+public class BSTOperatorTest {
 	@Nested
 	class AddNodesTests {
 		BinaryNode<Integer> root = new BinaryNode<Integer>(6);
@@ -24,7 +24,7 @@ public class BinarySearchTreeOperatorTest {
 			
 			for (int i = 0; i < insertion_data.length; i++) {
 				new_node = new BinaryNode<Integer>(insertion_data[i]);
-				root = BinarySearchTreeOperator.add(root, new_node);
+				root = BSTOperator.add(root, new_node);
 			}
 		}
 		
@@ -39,7 +39,7 @@ public class BinarySearchTreeOperatorTest {
 			
 			List<Integer> actual = new ArrayList<Integer>();
 			
-			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.getInOrder(root, actual).toArray());
+			assertArrayEquals(expected.toArray(), BSTOperator.getInOrder(root, actual).toArray());
 		}
 		
 		@Test
@@ -53,7 +53,7 @@ public class BinarySearchTreeOperatorTest {
 			
 			List<Integer> actual = new ArrayList<Integer>();
 			
-			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.getPreOrder(root, actual).toArray());
+			assertArrayEquals(expected.toArray(), BSTOperator.getPreOrder(root, actual).toArray());
 		}
 		
 		@Test
@@ -67,7 +67,7 @@ public class BinarySearchTreeOperatorTest {
 			
 			List<Integer> actual = new ArrayList<Integer>();
 			
-			assertArrayEquals(expected.toArray(), BinarySearchTreeOperator.getPostOrder(root, actual).toArray());
+			assertArrayEquals(expected.toArray(), BSTOperator.getPostOrder(root, actual).toArray());
 		}
 	}
 }

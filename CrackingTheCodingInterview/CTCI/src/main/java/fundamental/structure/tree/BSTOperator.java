@@ -5,15 +5,15 @@ import java.util.List;
 /*
  * All left children are smaller and all right children are bigger then the root of the subtree.
  */
-public class BinarySearchTreeOperator {
+public class BSTOperator {
 	public static BinaryNode<Integer> add(BinaryNode<Integer> root, BinaryNode<Integer> node) {
 		if (root == null) {
 			return node;
 		} else {
 			if (root.data > node.data) {
-				root.left = BinarySearchTreeOperator.add(root.left, node);
+				root.left = BSTOperator.add(root.left, node);
 			} else {
-				root.right = BinarySearchTreeOperator.add(root.right, node);
+				root.right = BSTOperator.add(root.right, node);
 			}
 		}
 		return root;
@@ -21,9 +21,9 @@ public class BinarySearchTreeOperator {
 	
 	public static List<Integer> getInOrder(BinaryNode<Integer> root, List<Integer> list) {
 		if (root != null) {
-			list = BinarySearchTreeOperator.getInOrder(root.left, list);
+			list = BSTOperator.getInOrder(root.left, list);
 			list.add(root.data);
-			list = BinarySearchTreeOperator.getInOrder(root.right, list);
+			list = BSTOperator.getInOrder(root.right, list);
 		}
 		return list;
 	}
@@ -31,16 +31,16 @@ public class BinarySearchTreeOperator {
 	public static List<Integer> getPreOrder(BinaryNode<Integer> root, List<Integer> list) {
 		if (root != null) {
 			list.add(root.data);
-			list = BinarySearchTreeOperator.getPreOrder(root.left, list);
-			list = BinarySearchTreeOperator.getPreOrder(root.right, list);
+			list = BSTOperator.getPreOrder(root.left, list);
+			list = BSTOperator.getPreOrder(root.right, list);
 		}
 		return list;
 	}
 	
 	public static List<Integer> getPostOrder(BinaryNode<Integer> root, List<Integer> list) {
 		if (root != null) {
-			list = BinarySearchTreeOperator.getPostOrder(root.left, list);
-			list = BinarySearchTreeOperator.getPostOrder(root.right, list);
+			list = BSTOperator.getPostOrder(root.left, list);
+			list = BSTOperator.getPostOrder(root.right, list);
 			list.add(root.data);
 		}
 		return list;

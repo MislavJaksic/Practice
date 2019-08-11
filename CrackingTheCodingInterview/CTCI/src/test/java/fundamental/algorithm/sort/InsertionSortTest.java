@@ -1,4 +1,4 @@
-package fundamental.algorithm;
+package fundamental.algorithm.sort;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
