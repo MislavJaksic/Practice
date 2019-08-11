@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import fundamental.structure.Stack;
+import fundamental.structure.stackqueue.Stack;
 import stackqueue.QueueViaStacks;
 import stackqueue.SetOfStacks;
 import stackqueue.SortStack;

@@ -1,4 +1,4 @@
-package fundamental.structure;
+package fundamental.structure.array;
 
 public class ResizableArray {
 	private static final int enlarge_factor = 2;

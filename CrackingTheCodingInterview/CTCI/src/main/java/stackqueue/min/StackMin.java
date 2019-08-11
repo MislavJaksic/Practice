@@ -1,6 +1,6 @@
 package stackqueue.min;
 
-import fundamental.structure.Stack;
+import fundamental.structure.stackqueue.Stack;
 
 public class StackMin extends Stack<NodeMin> {
 	public int sentinel = Integer.MAX_VALUE;

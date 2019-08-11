@@ -1,4 +1,4 @@
-package fundamental.structure;
+package fundamental.structure.array;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import fundamental.structure.ResizableArray;
+import fundamental.structure.array.ResizableArray;
 
 public class ResizableArrayTest {
 	@Nested

@@ -1,4 +1,4 @@
-package fundamental.structure.tree;
+package fundamental.structure.graphtree;
 
 import java.util.ArrayList;
 

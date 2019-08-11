@@ -1,4 +1,4 @@
-package fundamental.structure;
+package fundamental.structure.stackqueue;
 
 import list.Node;
 

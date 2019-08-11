@@ -10,11 +10,11 @@ public class InsertionSort {
 	 * @param array
 	 * @return
 	 */
-	public static int[] sort(int[] array) {
-		int sentinel;
+	public static <T extends Comparable<T>> T[] sort(T[] array) {
+		T sentinel;
 		for (int i = 1; i < array.length; i++) {
 			for (int j = 0; j < i; j++) {
-				if (array[i - j] < array[i - j - 1]) {
+				if (array[i - j].compareTo(array[i - j - 1]) == -1) {
 					sentinel = array[i - j];
 					array[i - j] = array[i - j - 1];
 					array[i - j - 1] = sentinel;

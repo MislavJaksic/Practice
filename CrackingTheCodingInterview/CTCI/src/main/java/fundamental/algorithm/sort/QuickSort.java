@@ -7,33 +7,34 @@ public class QuickSort {
 	 * @param array
 	 * @return
 	 */
-	public static int[] sort(int[] array) {
+	public static <T extends Comparable<T>> T[] sort(T[] array) {
 		int low = 0;
 		int high = array.length - 1;
 		return QuickSort.sortQuickly(low, high, array);
 	}
 	
-	private static int[] sortQuickly(int low, int high, int[] array) {
+	private static <T extends Comparable<T>> T[] sortQuickly(int low, int high, T[] array) {
 		int partition;
 		if (low < high) {
 			partition = QuickSort.partition(low, high, array);
-			array = sortQuickly(low, partition - 1, array);
-			array = sortQuickly(partition + 1, high, array);
+			array = QuickSort.sortQuickly(low, partition - 1, array);
+			array = QuickSort.sortQuickly(partition + 1, high, array);
 		}
 		
 		return array;
 	}
 	
-	private static int partition(int low, int high, int[] array) {
-		int sentinel;
+	private static <T extends Comparable<T>> int partition(int low, int high, T[] array) {
+		T sentinel;
 		
-		int pivot = array[high];
+		T pivot = array[high];
 		int i = low;
-		for (int j = low; j < high - 1; j++) {
-			if (array[j] < pivot) {
+		for (int j = low; j < high; j++) {
+			if (array[j].compareTo(pivot) == -1) {
 				sentinel = array[i];
 				array[i] = array[j];
 				array[j] = sentinel;
+				
 				i++;
 			}
 		}

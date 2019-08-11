@@ -1,6 +1,6 @@
 package stackqueue;
 
-import fundamental.structure.Stack;
+import fundamental.structure.stackqueue.Stack;
 
 public class SetOfStacks<T> {
 	public T sentinel = null;

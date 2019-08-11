@@ -1,11 +1,11 @@
-package fundamental.structure;
+package fundamental.structure.stackqueue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import fundamental.structure.Queue;
+import fundamental.structure.stackqueue.Queue;
 
 public class QueueTest {
 	@Nested

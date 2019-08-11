@@ -1,5 +1,7 @@
 package fundamental.algorithm.sort;
 
+import java.lang.reflect.Array;
+
 public class MergeSort {
 	/**
 	 * Subdivide the array into smaller arrays and then merge left and right arrays into a single ordered array.
@@ -10,27 +12,27 @@ public class MergeSort {
 	 * @param array
 	 * @return
 	 */
-	public static int[] sort(int[] array) {
+	public static <T extends Comparable<T>> T[] sort(Class<T> class_type, T[] array) {
 		int low = 0;
 		int high = array.length - 1;
-		return MergeSort.topDownMergeSort(low, high, array);
+		return MergeSort.topDownMergeSort(class_type, low, high, array);
 	}
 	
-	private static int[] topDownMergeSort(int low, int high, int[] array) {
+	private static <T extends Comparable<T>> T[] topDownMergeSort(Class<T> class_type, int low, int high, T[] array) {
 		if (high - low < 1) {
 			return array;
 		}
 		
 		int middle = (high + low) / 2;
-		array = MergeSort.topDownMergeSort(low, middle, array);
-		array = MergeSort.topDownMergeSort(middle + 1, high, array);
-		array = MergeSort.merge(low, high, array);
+		array = MergeSort.topDownMergeSort(class_type, low, middle, array);
+		array = MergeSort.topDownMergeSort(class_type, middle + 1, high, array);
+		array = MergeSort.merge(class_type, low, high, array);
 		
 		return array;
 	}
 	
-	private static int[] merge(int low, int high, int[] array) {
-		int[] copy_array = MergeSort.copyArray(low, high, array);
+	private static <T extends Comparable<T>> T[] merge(Class<T> class_type, int low, int high, T[] array) {
+		T[] copy_array = MergeSort.copyArray(class_type, low, high, array);
 		
 		int middle = (high + low) / 2;
 		int left = low;
@@ -38,7 +40,7 @@ public class MergeSort {
 		int position = 0;
 		
 		while(left < (middle + 1) && right < (high + 1)) {
-			if (copy_array[left] < copy_array[right]) {
+			if (copy_array[left].compareTo(copy_array[right]) == -1) {
 				array[low + position] = copy_array[left];
 				left++;
 			} else {
@@ -63,11 +65,19 @@ public class MergeSort {
 		return array;
 	}
 	
-	private static int[] copyArray(int low, int high, int[] array) {
-		int[] copy_array = new int[array.length];
+	private static <T extends Comparable<T>> T[] copyArray(Class<T> class_type, int low, int high, T[] array) {
+		T[] copy_array = MergeSort.createGenericArray(class_type, array.length);
 		for (int i = low; i < high + 1; i++) {
 			copy_array[i] = array[i];
 		}
+		
 		return copy_array;
+	}
+	
+	private static <T extends Comparable<T>> T[] createGenericArray(Class<T> class_type, int size) {
+	    @SuppressWarnings("unchecked")
+	    T[] array = (T[]) Array.newInstance(class_type, size);
+
+	    return array;
 	}
 }
