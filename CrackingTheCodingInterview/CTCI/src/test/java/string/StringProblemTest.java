@@ -12,7 +12,7 @@ public class StringProblemTest {
 	@Nested
 	class IsUniqueTests {
 		@Test
-		public void EmptyStringTest() {
+		public void emptyStringTest() {
 			String input = "";
 
 			boolean expected = true;
@@ -23,7 +23,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void UniqueStringTest() {
+		public void uniqueStringTest() {
 			String input = "5498fscg";
 
 			boolean expected = true;
@@ -34,7 +34,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void NonUniqueStringTest() {
+		public void nonUniqueStringTest() {
 			String input = "abcddefg";
 
 			boolean expected = false;
@@ -48,7 +48,7 @@ public class StringProblemTest {
 	@Nested
 	class IsPermutationTests {
 		@Test
-		public void EmptyStringTest() {
+		public void emptyStringTest() {
 			String one = "";
 			String two = "";
 
@@ -60,7 +60,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void PermutationStringTest() {
+		public void permutationStringTest() {
 			String one = "abbcccdddd";
 			String two = "ddddcccbba";
 
@@ -72,7 +72,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void NonPermutationCaseOneStringTest() {
+		public void nonPermutationCaseOneStringTest() {
 			String one = "abbcccddd";
 			String two = "ddddcccbba";
 
@@ -84,7 +84,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void NonPermutationCaseTwoStringTest() {
+		public void nonPermutationCaseTwoStringTest() {
 			String one = "abbcccdddd";
 			String two = "ddddcccbb";
 
@@ -138,7 +138,7 @@ public class StringProblemTest {
 	@Nested
 	class PalindromePermutationTests {
 		@Test
-		public void EmptyStringTest() {
+		public void emptyStringTest() {
 			String input = "";
 
 			boolean expected = true;
@@ -149,7 +149,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void EvenPalindromeTest() {
+		public void evenPalindromeTest() {
 			String input = "aabbccdd";
 
 			boolean expected = true;
@@ -160,7 +160,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void OddPalindromeTest() {
+		public void oddPalindromeTest() {
 			String input = "aabbccd";
 
 			boolean expected = true;
@@ -171,7 +171,7 @@ public class StringProblemTest {
 		}
 		
 		@Test
-		public void NonPalindromeTest() {
+		public void nonPalindromeTest() {
 			String input = "aabbcd";
 
 			boolean expected = false;
@@ -185,7 +185,7 @@ public class StringProblemTest {
 	@Nested
 	class OneAwayTests {
 		@Test
-		public void EmptyStringTest() {
+		public void emptyStringTest() {
 			String one = "";
 			String two = "";
 
@@ -197,7 +197,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void ManyReplacementsTest() {
+		public void manyReplacementsTest() {
 			String one = "abbcccdddd";
 			String two = "ddddcccbba";
 
@@ -209,7 +209,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void ManyDeletionsTest() {
+		public void manyDeletionsTest() {
 			String one = "abbcccddd";
 			String two = "ddddcccbbaaaaa";
 
@@ -221,7 +221,7 @@ public class StringProblemTest {
 		}
 		
 		@Test
-		public void OneReplacementTest() {
+		public void oneReplacementTest() {
 			String one = "abbcccdddd";
 			String two = "abbcccddda";
 
@@ -233,7 +233,7 @@ public class StringProblemTest {
 		}
 		
 		@Test
-		public void OneDeletionAtMiddleTest() {
+		public void oneDeletionAtMiddleTest() {
 			String one = "abbcccdddd";
 			String two = "abbccdddd";
 
@@ -245,7 +245,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void OneDeletionAtEndTest() {
+		public void oneDeletionAtEndTest() {
 			String one = "abbcccdddd";
 			String two = "abbcccddd";
 
@@ -260,7 +260,7 @@ public class StringProblemTest {
 	@Nested
 	class StringCompressionTests {
 		@Test
-		public void SmallStringTest() {
+		public void smallStringTest() {
 			String one = "ab";
 
 			String expected = "ab";
@@ -271,7 +271,7 @@ public class StringProblemTest {
 		}
 
 		@Test
-		public void UniformStringTest() {
+		public void uniformStringTest() {
 			String one = "aaaaa";
 
 			String expected = "a5";
@@ -282,7 +282,7 @@ public class StringProblemTest {
 		}
 		
 		@Test
-		public void LargeDescendingStringTest() {
+		public void largeDescendingStringTest() {
 			String one = "aaaaabbbbcccdde";
 
 			String expected = "a5b4c3d2e1";
@@ -293,7 +293,7 @@ public class StringProblemTest {
 		}
 		
 		@Test
-		public void LargeAscendingStringTest() {
+		public void largeAscendingStringTest() {
 			String one = "abbcccddddeeeee";
 
 			String expected = "a1b2c3d4e5";
@@ -304,7 +304,7 @@ public class StringProblemTest {
 		}
 		
 		@Test
-		public void LargeNonRepeatingStringTest() {
+		public void largeNonRepeatingStringTest() {
 			String one = "abcdefghiklmnop";
 
 			String expected = "abcdefghiklmnop";

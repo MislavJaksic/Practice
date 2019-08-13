@@ -14,7 +14,7 @@ public class ResizableArrayTest {
 		ResizableArray array = new ResizableArray();
 		
 		@Test
-		public void TestCopyArray() {
+		public void copyArrayTest() {
 			int[] expected = new int[1];
 			int capacity = 1;
 			
@@ -22,35 +22,35 @@ public class ResizableArrayTest {
 		}
 		
 		@Test
-		public void TestIsFull() {
+		public void isFullTest() {
 			boolean expected = true;
 			
 			assertEquals(expected, array.isFull());
 		}
 		
 		@Test
-		public void TestIsSparse() {
+		public void isSparseTest() {
 			boolean expected = false;
 			
 			assertEquals(expected, array.isSparse());
 		}
 		
 		@Test
-		public void TestGetArray() {
+		public void getArrayTest() {
 			int[] expected = new int[1];
 			
 			assertArrayEquals(expected, array.getArray());
 		}
 		
 		@Test
-		public void TestSize() {
+		public void sizeTest() {
 			int expected = 1;
 			
 			assertEquals(expected, array.size());
 		}
 		
 		@Test
-		public void TestGetIndex() {
+		public void getIndexTest() {
 			int expected = 0;
 			
 			assertEquals(expected, array.getIndex());
@@ -63,7 +63,7 @@ public class ResizableArrayTest {
 		int capacity = 7;
 		
 		@Test
-		public void TestAppend() {
+		public void appendTest() {
 			ResizableArray array = new ResizableArray();
 			
 			int[] expected = new int[capacity];
@@ -77,7 +77,7 @@ public class ResizableArrayTest {
 		}
 		
 		@Test
-		public void TestPop() {
+		public void popTest() {
 			ResizableArray array = new ResizableArray();
 			
 			int[] expected = new int[capacity];

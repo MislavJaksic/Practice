@@ -12,7 +12,7 @@ public class ListOperatorTest {
 	@Nested
 	class GetLastNodeTests {
 		@Test
-		public void TestGetLastNullNode() {
+		public void getLastNullNodeTest() {
 			ListNode node = null;
 			
 			ListNode expected = null;
@@ -21,7 +21,7 @@ public class ListOperatorTest {
 		}
 		
 		@Test
-		public void TestGetLastOneNode() {
+		public void getLastOneNodeTest() {
 			ListNode node = new ListNode(0);
 			
 			ListNode expected = new ListNode(0);
@@ -30,7 +30,7 @@ public class ListOperatorTest {
 		}
 		
 		@Test
-		public void TestGetLastTwoNodes() {
+		public void getLastTwoNodesTest() {
 			ListNode node = new ListNode(0);
 			node.next = new ListNode(1);
 			
@@ -43,7 +43,7 @@ public class ListOperatorTest {
 	@Nested
 	class GetSecondToLastNodeTests {
 		@Test
-		public void TestGetSecondToLastNullNode() {
+		public void getSecondToLastNullNodeTest() {
 			ListNode node = null;
 			
 			ListNode expected = null;
@@ -52,7 +52,7 @@ public class ListOperatorTest {
 		}
 		
 		@Test
-		public void TestGetSecondToLastOneNode() {
+		public void getSecondToLastOneNodeTest() {
 			ListNode node = new ListNode(0);
 			
 			ListNode expected = new ListNode(0);
@@ -61,7 +61,7 @@ public class ListOperatorTest {
 		}
 		
 		@Test
-		public void TestGetSecondToLastThreeNodes() {
+		public void getSecondToLastThreeNodesTest() {
 			ListNode node = new ListNode(0);
 			node.next = new ListNode(1);
 			node.next.next = new ListNode(2);
@@ -75,7 +75,7 @@ public class ListOperatorTest {
 	@Nested
 	class AppendTests {
 		@Test
-		public void TestAppendToNull() {
+		public void appendToNullTest() {
 			ListNode node = null;
 			ListNode result = ListOperator.append(node, 0);
 			
@@ -85,7 +85,7 @@ public class ListOperatorTest {
 		}
 		
 		@Test
-		public void TestAppendToNonNull() {
+		public void appendToNonNullTest() {
 			ListNode node = new ListNode(0);
 			ListNode result = ListOperator.append(node, 1);
 			
