@@ -8,7 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import fundamental.algorithm.search.BinarySearch;
+import fundamental.algorithm.search.BinarySearcher;
 
 public class BinarySearchTest {
 	public static Stream<Arguments> arrayProvider() {
@@ -17,11 +17,15 @@ public class BinarySearchTest {
 		Integer[] big_even_array = { 0, 5, 15, 20, 25, 30 };
 		Integer[] big_odd_array = { 0, 5, 15, 20, 25, 30, 35};
 		
+		// Integer[] max_array = new Integer[Integer.MAX_VALUE];
+		// max_array[1] = 5;
+		
 		return Stream.of(
 				Arguments.of(0, small_odd_array),
 				Arguments.of(1, small_even_array),
 				Arguments.of(2, big_even_array),
-				Arguments.of(3, big_odd_array)
+				Arguments.of(3, big_odd_array) // ,
+				// Arguments.of(4, max_array)
 				);
 	}
 	
@@ -30,9 +34,9 @@ public class BinarySearchTest {
 	public void trueLeftTest(Integer count, Integer[] array) {
 		Integer search_term = 0;
 		
-		boolean expected = true;
-
-		assertEquals(expected, BinarySearch.search(array, search_term));
+		int expected = 0;
+		
+		assertEquals(expected, BinarySearcher.binarySearchIndex(array, search_term));
 	}
 	
 	@ParameterizedTest
@@ -40,9 +44,9 @@ public class BinarySearchTest {
 	public void trueRightTest(Integer count, Integer[] array) {
 		int search_term = 5;
 		
-		boolean expected = true;
+		int expected = 1;
 
-		assertEquals(expected, BinarySearch.search(array, search_term));
+		assertEquals(expected, BinarySearcher.binarySearchIndex(array, search_term));
 	}
 	
 	@ParameterizedTest
@@ -50,9 +54,9 @@ public class BinarySearchTest {
 	public void falseLeftTest(Integer count, Integer[] array) {
 		int search_term = -5;
 		
-		boolean expected = false;
+		int expected = BinarySearcher.sentinel;
 
-		assertEquals(expected, BinarySearch.search(array, search_term));
+		assertEquals(expected, BinarySearcher.binarySearchIndex(array, search_term));
 	}
 	
 	@ParameterizedTest
@@ -60,8 +64,8 @@ public class BinarySearchTest {
 	public void falseRightTest(Integer count, Integer[] array) {
 		int search_term = 40;
 		
-		boolean expected = false;
+		int expected = BinarySearcher.sentinel;
 
-		assertEquals(expected, BinarySearch.search(array, search_term));
+		assertEquals(expected, BinarySearcher.binarySearchIndex(array, search_term));
 	}
 }
