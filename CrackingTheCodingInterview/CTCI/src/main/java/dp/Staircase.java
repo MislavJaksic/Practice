@@ -14,7 +14,7 @@ stairs.
  */
 public class Staircase {
 	static public int calculate(int N) {
-
+		Integer steps = 0;
 		return steps;
 	}
 }

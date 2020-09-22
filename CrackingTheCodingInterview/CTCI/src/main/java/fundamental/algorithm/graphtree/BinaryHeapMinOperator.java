@@ -7,9 +7,9 @@ public class BinaryHeapMinOperator {
 	public static <T> BinaryHeapNode<T> insert(BinaryHeapNode<T> root, T element) {
 		Queue<BinaryHeapNode<T>> q = new Queue<BinaryHeapNode<T>>();
 		BinaryHeapNode<T> new_node = new BinaryHeapNode<T>(element);
-		
+
 		q.add(root);
-		
+
 		BinaryHeapNode<T> node;
 		while (!q.isEmpty()) {
 			node = q.remove();
@@ -24,14 +24,11 @@ public class BinaryHeapMinOperator {
 				q.add(node.right);
 			}
 		}
-		
+
 		return new_node;
 	}
-	
-	private static <T> void bubbleUp(BinaryHeapNode<T> node) {
-	}
-	
+
 //	public static <T> BinaryNode<T> extractMin(BinaryNode<T> root) {
-//		
+//
 //	}
 }

@@ -7,14 +7,14 @@ Be it as it may, what it does have is a lot of interesting problems (and solutio
 ### Introduction
 
 Candidates have to solve interview questions.  
-To solve them they need to practise developing fresh algorithms.  
+To solve them they need to practice developing fresh algorithms.  
 
 ### Interview process
 
-Talk out loud throughtout the problem.  
+Talk out loud throughout the problem.  
 A candidate will be scored on the following:
 * how many hints did they need; was the solution optimal; how long did it take them; did they think about tradeoffs  
-* did you translate your algorithm into code well; was it clean and organised; did they think about errors; did they have a good style  
+* did you translate your algorithm into code well; was it clean and organized; did they think about errors; did they have a good style  
 * do they have a strong foundation in computer science  
 * have they made good technical decisions; have they built challenging projects; did they show drive and initiative  
 * how well did they communicate; were they a good culture fit  

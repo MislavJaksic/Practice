@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import string.StringProblems;
-
 public class StringProblemTest {
 	@Nested
 	class IsUniqueTests {
@@ -169,7 +167,7 @@ public class StringProblemTest {
 
 			assertEquals(expected, actual);
 		}
-		
+
 		@Test
 		public void nonPalindromeTest() {
 			String input = "aabbcd";
@@ -181,7 +179,7 @@ public class StringProblemTest {
 			assertEquals(expected, actual);
 		}
 	}
-	
+
 	@Nested
 	class OneAwayTests {
 		@Test
@@ -219,7 +217,7 @@ public class StringProblemTest {
 
 			assertEquals(expected, actual);
 		}
-		
+
 		@Test
 		public void oneReplacementTest() {
 			String one = "abbcccdddd";
@@ -231,7 +229,7 @@ public class StringProblemTest {
 
 			assertEquals(expected, actual);
 		}
-		
+
 		@Test
 		public void oneDeletionAtMiddleTest() {
 			String one = "abbcccdddd";
@@ -256,7 +254,7 @@ public class StringProblemTest {
 			assertEquals(expected, actual);
 		}
 	}
-	
+
 	@Nested
 	class StringCompressionTests {
 		@Test
@@ -280,7 +278,7 @@ public class StringProblemTest {
 
 			assertEquals(expected, actual);
 		}
-		
+
 		@Test
 		public void largeDescendingStringTest() {
 			String one = "aaaaabbbbcccdde";
@@ -291,7 +289,7 @@ public class StringProblemTest {
 
 			assertEquals(expected, actual);
 		}
-		
+
 		@Test
 		public void largeAscendingStringTest() {
 			String one = "abbcccddddeeeee";
@@ -302,7 +300,7 @@ public class StringProblemTest {
 
 			assertEquals(expected, actual);
 		}
-		
+
 		@Test
 		public void largeNonRepeatingStringTest() {
 			String one = "abcdefghiklmnop";
