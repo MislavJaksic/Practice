@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "codewars-katas"
+version = "0.0.1"
+description = "Practice Codewars' katas."
+
+license = "MIT"
+authors = ["Mislav Jaksic <jaksicmislav@gmail.com>"]
+maintainers = []
+readme = "README.md"
+
+homepage = "https://github.com/MislavJaksic"
+repository = "https://github.com/MislavJaksic"
+documentation = "https://github.com/MislavJaksic"
+
+keywords = []
+
+classifiers = []
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.22.0"
+
+[tool.poetry.dev-dependencies]
+pytest-cov = "^2.8.1"
+black = "^19.10b0"
+pytest = "^5.2"
+sphinx = "^2.3.1"
+
+[tool.poetry.scripts]
+codewars-katas = "katas.runner:run"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
