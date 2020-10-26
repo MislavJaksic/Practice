@@ -9,30 +9,29 @@
 """
 import sys
 
+import itertools
 
-def iq_test(numbers):
-    even_i = 0
-    odd_i = 0
-    list = numbers.split(" ")
-    list = [int(x) for x in list]
-    for (number, i) in zip(list, range(len(numbers))):
-        if number % 2 == 0:
-            if even_i == 0:
-                even_i = i + 1
-            elif odd_i != 0:
-                return odd_i
-        else:
-            if odd_i == 0:
-                odd_i = i + 1
-            elif even_i != 0:
-                return even_i
-    return len(list)
+
+def choose_best_sum(t, k, ls):
+    combs = list(itertools.combinations(ls, k))
+    best = -1
+    for comb in combs:
+        distance = sum(comb)
+        if distance > best and distance <= t:
+            best = distance
+    return best if best != -1 else None
 
 
 def main(args):
     """main() will be run if you run this script directly
     """
-    print(iq_test("16 20 50 6 4 2 22 2 50 26 48 10 47"))
+    print(
+        choose_best_sum(
+            430,
+            8,
+            [100, 76, 56, 44, 89, 73, 68, 56, 64, 123, 2333, 144, 50, 132, 123, 34, 89],
+        )
+    )
 
 
 def run():

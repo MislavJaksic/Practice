@@ -196,3 +196,71 @@ def find_it(seq):
 #
 # def find_it(xs):
 #     return reduce(operator.xor, xs)
+
+import string
+
+
+def transform(c):
+    if c.islower():
+        return string.ascii_lowercase[(ord(c) % 97 + 13) % 26]
+    else:
+        return string.ascii_uppercase[(ord(c) % 65 + 13) % 26]
+
+
+def rot13(message):
+    encrypted = []
+    for c in message:
+        if c.isalpha():
+            c = transform(c)
+        encrypted.append(c)
+
+    return "".join(encrypted)
+
+
+# Clever and short
+# import string
+#
+# trans = string.maketrans('ABCDEFGHIJKLMabcdefghijklmNOPQRSTUVWXYZnopqrstuvwxyz', 'NOPQRSTUVWXYZnopqrstuvwxyzABCDEFGHIJKLMabcdefghijklm')
+#
+# def rot13(message):
+#     return message.translate(trans)
+
+import math
+
+
+def race(v1, v2, g):
+    if v2 > v1:
+        v_diff = v2 - v1
+        t = g / v_diff * 3600
+        h = math.trunc((t / 3600))
+        m = math.trunc((t % 3600) / 60)
+        s = math.trunc(t % 60)
+        return [h, m, s]
+    return None
+
+
+# Shorter syntax
+# def race(v1, v2, g):
+#     if v1 < v2:
+#         t = g * 3600 / (v2 - v1)
+#         return [t//3600, t//60%60, t%60]
+
+
+import itertools
+
+
+def choose_best_sum(t, k, ls):
+    combs = list(itertools.combinations(ls, k))
+    best = -1
+    for comb in combs:
+        distance = sum(comb)
+        if distance > best and distance <= t:
+            best = distance
+    return best if best != -1 else None
+
+
+# Concise but inefficient as you need to create another list
+# from itertools import combinations
+#
+# def choose_best_sum(t, k, ls):
+#     return max((s for s in (sum(dists) for dists in combinations(ls, k)) if s <= t), default=None)
