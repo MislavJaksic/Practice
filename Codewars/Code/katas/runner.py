@@ -9,29 +9,26 @@
 """
 import sys
 
-import itertools
+import string
 
 
-def choose_best_sum(t, k, ls):
-    combs = list(itertools.combinations(ls, k))
-    best = -1
-    for comb in combs:
-        distance = sum(comb)
-        if distance > best and distance <= t:
-            best = distance
-    return best if best != -1 else None
+def is_pangram(s):
+    letters = list(string.ascii_lowercase)
+    for char in s:
+        try:
+            letters.remove(char.lower())
+        except:
+            pass
+        if not letters:
+            return True
+    print(letters)
+    return False
 
 
 def main(args):
     """main() will be run if you run this script directly
     """
-    print(
-        choose_best_sum(
-            430,
-            8,
-            [100, 76, 56, 44, 89, 73, 68, 56, 64, 123, 2333, 144, 50, 132, 123, 34, 89],
-        )
-    )
+    print(is_pangram("The quick, brown fox jumps over the lazy dog!"))
 
 
 def run():

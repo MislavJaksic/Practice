@@ -264,3 +264,142 @@ def choose_best_sum(t, k, ls):
 #
 # def choose_best_sum(t, k, ls):
 #     return max((s for s in (sum(dists) for dists in combinations(ls, k)) if s <= t), default=None)
+
+
+def find_uniq(arr):
+    dict = {}
+    for n in arr:
+        if not dict.get(n):
+            dict[n] = 1
+        else:
+            if len(dict) > 1:
+                for key in dict:
+                    if key != n:
+                        return key
+    return arr[-1]
+
+
+# Clever use of a set data structure
+# def find_uniq(arr):
+#     a, b = set(arr)
+#     return a if arr.count(a) == 1 else b
+
+
+def title_case(title, minor_words=""):
+    exceptions = minor_words.lower().split(" ")
+    if title:
+        all = title.lower().split(" ")
+        first = [all[0].capitalize()]
+        other = [word if word in exceptions else word.capitalize() for word in all[1:]]
+        first.extend(other)
+        return " ".join(first)
+    return ""
+
+
+# Much better solution; less verbose
+# def title_case(title, minor_words=''):
+#     title = title.capitalize().split()
+#     minor_words = minor_words.lower().split()
+#     return ' '.join([word if word in minor_words else word.capitalize() for word in title])
+
+import string
+
+
+def is_pangram(s):
+    letters = list(string.ascii_lowercase)
+    for char in s:
+        try:
+            letters.remove(char.lower())
+        except:
+            pass
+        if not letters:
+            return True
+    print(letters)
+    return False
+
+
+# Short and simple
+# import string
+#
+# def is_pangram(s):
+#     return set(string.ascii_lowercase).issubset(s.lower())
+
+
+def duplicate_count(text):
+    dict = {}
+    for char in text.lower():
+        if dict.get(char):
+            dict[char] += 1
+        else:
+            dict[char] = 1
+    count = 0
+    for value in dict.values():
+        if value > 1:
+            count += 1
+    return count
+
+
+# Clever but not efficient
+# def duplicate_count(s):
+#   return len([c for c in set(s.lower()) if s.lower().count(c)>1])
+
+
+def bouncing_ball(h, bounce, window):
+    if h > 0 and h > window and bounce > 0 and 1 > bounce:
+        count = 1
+        while h * bounce > window:
+            h = h * bounce
+            count += 2
+        return count
+    else:
+        return -1
+
+
+# A horrid solution!
+# def abbreviate(s):
+#     new_string = []
+#     first = None
+#     previous = []
+#     count = 0
+#     for char in s:
+#         if first:
+#             if char.isalpha():
+#                 count += 1
+#                 previous.append(char)
+#             else:
+#                 new_string.append(first)
+#                 if count > 2:
+#                     new_string.append(str(count - 1))
+#                     new_string.append(previous.pop())
+#                 else:
+#                     new_string.append("".join(previous))
+#                 new_string.append(char)
+#                 first = None
+#                 previous = []
+#                 count = 0
+#         else:
+#             if char.isalpha():
+#                 first = char
+#             else:
+#                 new_string.append(char)
+#     new_string.append(first)
+#     if count > 2:
+#         new_string.append(str(count - 1))
+#         new_string.append(previous.pop())
+#     else:
+#         new_string.append("".join(previous))
+#     return "".join(new_string)
+
+# Better solution, a lot better one
+import re
+
+regex = re.compile("[a-z]{4,}", re.IGNORECASE)
+
+
+def replace(match):
+    word = match.group(0)
+    return word[0] + str(len(word) - 2) + word[-1]
+
+
+def abbreviate(s):
+    return regex.sub(replace, s)
