@@ -9,26 +9,36 @@
 """
 import sys
 
-import string
+
+def shorten(string):
+    if len(string) < 4:
+        return string
+    return string[0] + str(len(string[1:-1])) + string[-1]
 
 
-def is_pangram(s):
-    letters = list(string.ascii_lowercase)
-    for char in s:
-        try:
-            letters.remove(char.lower())
-        except:
-            pass
-        if not letters:
-            return True
-    print(letters)
-    return False
+def abbreviate(s):
+    low = 0
+    high = 0
+    new_string = ""
+    for i in range(len(s)):
+        if s[i].isalpha():
+            high = i
+        else:
+            if high > low:
+                new_string += shorten(s[low + 1 : high + 1])
+            new_string += s[i]
+            low = i
+            high = i
+    if high > low:
+        new_string += shorten(s[low + 1 : high + 1])
+
+    return new_string
 
 
 def main(args):
     """main() will be run if you run this script directly
     """
-    print(is_pangram("The quick, brown fox jumps over the lazy dog!"))
+    print(abbreviate("Accessibility"))
 
 
 def run():

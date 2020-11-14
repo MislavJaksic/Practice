@@ -403,3 +403,169 @@ def replace(match):
 
 def abbreviate(s):
     return regex.sub(replace, s)
+
+
+def two_sum(numbers, target):
+    numbers.sort()
+    low = 0
+    high = len(numbers) - 1
+    while high > low:
+        sum = numbers[low] + numbers[high]
+        if sum == target:
+            return (low, high)
+        elif sum > target:
+            high += -1
+        else:
+            low += 1
+
+
+from math import sqrt
+
+
+def isPP(n):
+    m = 2
+    k = 2
+    while sqrt(n) >= m:
+        product = m ** k
+        if product == n:
+            return [m, k]
+        elif product > n:
+            m += 1
+            k = 2
+        else:
+            k += 1
+
+    return None
+
+
+def stock_list(listOfArt, listOfCat):
+    dict = {}
+    for category in listOfCat:
+        dict[category] = 0
+
+    for stock in listOfArt:
+        code, quantity = stock.split(" ")
+        if code[0] in listOfCat:
+            dict[code[0]] += int(quantity)
+
+    output = []
+    template = "({0} : {1})"
+    if listOfArt:
+        for category in listOfCat:
+            output.append(template.format(category, dict[category]))
+
+    return " - ".join(output)
+
+
+def longest_consec(strarr, k):
+    if k < 1 or strarr == "" or len(strarr) < k:
+        return ""
+
+    max_index = 0
+    max = 0
+    for i in range(0, len(strarr) - k + 1):
+        len_sum = sum([len(x) for x in strarr[i : i + k]])
+        if len_sum > max:
+            max = len_sum
+            max_index = i
+
+    output = ""
+    for i in range(0, k):
+        output += strarr[max_index + i]
+
+    return output
+
+
+# Dense solution
+# def longest_consec(strarr, k):
+#     result = ""
+#
+#     if k > 0 and len(strarr) >= k:
+#         for index in range(len(strarr) - k + 1):
+#             s = ''.join(strarr[index:index+k])
+#             if len(s) > len(result):
+#                 result = s
+#
+#     return result
+
+
+def meeting(s):
+    names_surnames = s.split(";")
+    dict = {}
+    for name_surname in names_surnames:
+        name, surname = name_surname.split(":")
+        name = name.lower()
+        surname = surname.lower()
+        if dict.get(surname):
+            dict[surname].append(name)
+        else:
+            dict[surname] = [name]
+
+    output = []
+    template = "({0}, {1})"
+    keys = sorted(dict.keys())
+    for surname in keys:
+        dict[surname].sort()
+        for name in dict[surname]:
+            output.append(template.format(surname, name))
+
+    return "".join(output).upper()
+
+
+# Clever one liner
+# def meeting(s):
+#     return ''.join(sorted('({1}, {0})'.format(*(x.split(':'))) for x in s.upper().split(';')))
+
+
+import math
+
+
+def is_palindrome(candidate):
+    l = len(candidate)
+    if l == 1:
+        return True
+    lower = candidate[0 : l // 2]
+    higher = list(candidate[math.ceil(l / 2) : l])
+    higher.reverse()
+    higher = "".join(higher)
+    if lower == higher:
+        return True
+    return False
+
+
+def longest_palindrome(s):
+    max = 0
+    for low in range(len(s)):
+        for high in range(low + 1, len(s) + 1):
+            candidate = s[low:high]
+            if is_palindrome(candidate):
+                if len(candidate) > max:
+                    max = len(candidate)
+
+    return max
+
+
+# O(n) algortihm
+# def longest_palindrome(s):
+#     """Manacher algorithm - Complexity O(n)"""
+#     # Transform S into T.
+#     # For example, S = "abba", T = "^#a#b#b#a#$".
+#     # ^ and $ signs are sentinels appended to each end to avoid bounds checking
+#     T = '#'.join('^{}$'.format(s))
+#     n = len(T)
+#     P = [0] * n
+#     C = R = 0
+#     for i in range (1, n - 1):
+#         P[i] = (R > i) and min(R - i, P[2*C - i]) # equals to i' = C - (i-C)
+#         # Attempt to expand palindrome centered at i
+#         while T[i + 1 + P[i]] == T[i - 1 - P[i]]:
+#             P[i] += 1
+#
+#         # If palindrome centered at i expand past R,
+#         # adjust center based on expanded palindrome.
+#         if i + P[i] > R:
+#             C, R = i, i + P[i]
+#
+#     # Find the maximum element in P.
+#     maxLen, centerIndex = max((n, i) for i, n in enumerate(P))
+#     return maxLen
